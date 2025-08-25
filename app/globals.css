@@ -61,7 +61,7 @@
   }
 
   .header-2 {
-    @apply text-18 font-semibold text-gray-900;
+    @apply text-18 font-bold text-gray-900;
   }
 
   .text-10 {
@@ -126,11 +126,11 @@
   }
 
   .total-balance-label {
-    @apply text-14 font-medium text-gray-600;
+    @apply text-14 font-semibold text-gray-600;
   }
 
   .total-balance-amount {
-    @apply text-24 lg:text-30 flex-1 font-semibold text-gray-900;
+    @apply text-24 lg:text-30 flex-1 font-bold text-gray-900;
   }
 
   .recent-transactions {
@@ -175,11 +175,11 @@
   }
 
   .profile-name {
-    @apply text-24 font-semibold text-gray-900;
+    @apply text-24 font-bold text-gray-900;
   }
 
   .profile-email {
-    @apply text-16 font-normal text-gray-600;
+    @apply text-16 font-medium text-gray-600;
   }
 
   .banks {
@@ -213,11 +213,11 @@
   }
 
   .header-box-title {
-    @apply text-24 lg:text-30 font-semibold text-gray-900;
+    @apply text-24 lg:text-30 font-bold text-gray-900;
   }
 
   .header-box-subtext {
-    @apply text-14 lg:text-16 font-normal text-gray-600;
+    @apply text-14 lg:text-16 font-semibold text-gray-600;
   }
 
   /* Bank Card */

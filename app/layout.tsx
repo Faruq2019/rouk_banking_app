@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import { Inter, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "arial"],
+});
 
 const ibmPlexSerif = IBM_Plex_Serif({
   variable: "--font-ibm-plex-serif",
-  weight: ["400", "700"],
   subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  fallback: ["Georgia", "serif"],
 });
 
 export const metadata: Metadata = {
