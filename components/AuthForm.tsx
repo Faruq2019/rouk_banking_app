@@ -13,10 +13,10 @@ import { authFormSchema } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SignIn, SignUp } from "@/lib/actions/user.actions";
+import PlaidLink from "./PlaidLink";
 
 const AuthForm = ({ type }: { type: string }) => {
   const router = useRouter();
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -35,9 +35,22 @@ const AuthForm = ({ type }: { type: string }) => {
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     try {
+      const userData = {
+        firstName: data.firstName!,
+        lastName: data.lastName!,
+        address1: data.address1!,
+        city: data.city!,
+        state: data.state!,
+        postalCode: data.postalCode!,
+        dateOfBirth: data.dateOfBirth!,
+        ssn: data.ssn!,
+        email: data.email,
+        password: data.password,
+      };
+
       //SignUp and/or SignIn with Appwrite & create a plaid token
       if (type === "sign-up") {
-        const newUser = await SignUp(data);
+        const newUser = await SignUp(userData);
         setUser(newUser);
       }
 
@@ -79,7 +92,7 @@ const AuthForm = ({ type }: { type: string }) => {
       </header>
       {user ? (
         <div className="flex flex-col gap-4">
-          {/* Plaid Link Component for bank account */}
+          <PlaidLink user={user} variant="primary" />
         </div>
       ) : (
         <>
@@ -130,7 +143,7 @@ const AuthForm = ({ type }: { type: string }) => {
                   <div className="grid grid-cols-2 gap-4">
                     <CustomFormField
                       control={form.control}
-                      name={"dob"}
+                      name={"dateOfBirth"}
                       placeholder={"YYYY-MM-DD"}
                       label={"Date of Birth"}
                     />
